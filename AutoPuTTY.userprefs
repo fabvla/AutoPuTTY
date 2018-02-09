@@ -1,0 +1,17 @@
+﻿<Properties StartupConfiguration="{E02D95A5-496F-4848-9EFC-B2A3CAF70CC6}|Default">
+  <MonoDevelop.Ide.ItemProperties.AutoPuTTY PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="formMain.resx">
+    <Files>
+      <File FileName="formMain.cs" Line="1" Column="1" />
+      <File FileName="formOptions.resx" Line="1" Column="1" />
+      <File FileName="formOptions.Designer.cs" Line="1" Column="1" />
+      <File FileName="formMain.resx" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+</Properties>

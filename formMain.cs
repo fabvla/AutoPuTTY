@@ -164,6 +164,9 @@ namespace AutoPuTTY
 
             AutoSize = false;
             MinimumSize = Size;
+
+            this.Closing += new System.ComponentModel.CancelEventHandler(this.formMain_Closing);
+
 #if DEBUG
             Debug.WriteLine("StartUp Time :" + (DateTime.Now - time));
 #endif
@@ -1451,5 +1454,46 @@ namespace AutoPuTTY
         private delegate bool InvokeDelegate();
 
         #endregion
+
+        private void formMain_Load(object sender, EventArgs e)
+        {
+            if ((ModifierKeys & Keys.Shift) == 0)
+            {
+                string initLocation = Properties.Settings.Default.InitialLocation;
+                Point il = new Point(0, 0);
+                Size sz = Size;
+                if (!string.IsNullOrEmpty(initLocation))
+                {
+                    string[] parts = initLocation.Split(',');
+                    if (parts.Length >= 2)
+                    {
+                        il = new Point(int.Parse(parts[0]), int.Parse(parts[1]));
+                    }
+                    if (parts.Length >= 4)
+                    {
+                        sz = new Size(int.Parse(parts[2]), int.Parse(parts[3]));
+                    }
+                }
+                Size = sz;
+                Location = il;
+            }
+        }
+
+        private void formMain_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if ((ModifierKeys & Keys.Shift) == 0)
+            {
+                Point location = Location;
+                Size size = Size;
+                if (WindowState != FormWindowState.Normal)
+                {
+                    location = RestoreBounds.Location;
+                    size = RestoreBounds.Size;
+                }
+                string initLocation = location.X + "," + location.Y + "," + size.Width + "," + size.Height;
+                Properties.Settings.Default.InitialLocation = initLocation;
+                Properties.Settings.Default.Save();
+            }
+        }
     }
 }
