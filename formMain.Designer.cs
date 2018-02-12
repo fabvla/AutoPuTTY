@@ -32,6 +32,8 @@ namespace AutoPuTTY
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formMain));
             this.tbPass = new System.Windows.Forms.TextBox();
             this.pConfig = new System.Windows.Forms.Panel();
+            this.tbComments = new System.Windows.Forms.TextBox();
+            this.lComments = new System.Windows.Forms.Label();
             this.bEye = new System.Windows.Forms.PictureBox();
             this.lSep5 = new System.Windows.Forms.Label();
             this.lSep4 = new System.Windows.Forms.Label();
@@ -65,6 +67,7 @@ namespace AutoPuTTY
             this.tbFilter = new System.Windows.Forms.TextBox();
             this.lbListSep = new System.Windows.Forms.TableLayoutPanel();
             this.lbList = new System.Windows.Forms.ListBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.pConfig.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bEye)).BeginInit();
             this.tlMain.SuspendLayout();
@@ -87,6 +90,9 @@ namespace AutoPuTTY
             // pConfig
             // 
             this.pConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pConfig.Controls.Add(this.label3);
+            this.pConfig.Controls.Add(this.tbComments);
+            this.pConfig.Controls.Add(this.lComments);
             this.pConfig.Controls.Add(this.bEye);
             this.pConfig.Controls.Add(this.lSep5);
             this.pConfig.Controls.Add(this.lSep4);
@@ -107,11 +113,33 @@ namespace AutoPuTTY
             this.pConfig.Controls.Add(this.lPass);
             this.pConfig.Controls.Add(this.lUser);
             this.pConfig.Controls.Add(this.lName);
-            this.pConfig.Location = new System.Drawing.Point(705, 0);
+            this.pConfig.Location = new System.Drawing.Point(698, 0);
             this.pConfig.Margin = new System.Windows.Forms.Padding(0);
             this.pConfig.Name = "pConfig";
-            this.pConfig.Size = new System.Drawing.Size(580, 595);
+            this.pConfig.Size = new System.Drawing.Size(580, 779);
             this.pConfig.TabIndex = 1;
+            this.pConfig.Paint += new System.Windows.Forms.PaintEventHandler(this.pConfig_Paint);
+            // 
+            // tbComments
+            // 
+            this.tbComments.Location = new System.Drawing.Point(5, 485);
+            this.tbComments.Margin = new System.Windows.Forms.Padding(7);
+            this.tbComments.Multiline = true;
+            this.tbComments.Name = "tbComments";
+            this.tbComments.Size = new System.Drawing.Size(566, 214);
+            this.tbComments.TabIndex = 11;
+            this.tbComments.TextChanged += new System.EventHandler(this.tbComments_TextChanged);
+            // 
+            // lComments
+            // 
+            this.lComments.AutoSize = true;
+            this.lComments.Location = new System.Drawing.Point(7, 447);
+            this.lComments.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.lComments.Name = "lComments";
+            this.lComments.Size = new System.Drawing.Size(129, 29);
+            this.lComments.TabIndex = 10;
+            this.lComments.Text = "Comments";
+            this.lComments.Click += new System.EventHandler(this.label2_Click);
             // 
             // bEye
             // 
@@ -187,7 +215,7 @@ namespace AutoPuTTY
             // 
             this.bOptions.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bOptions.Image = global::AutoPuTTY.Properties.Resources.iconoptions;
-            this.bOptions.Location = new System.Drawing.Point(226, 442);
+            this.bOptions.Location = new System.Drawing.Point(232, 712);
             this.bOptions.Margin = new System.Windows.Forms.Padding(0);
             this.bOptions.Name = "bOptions";
             this.bOptions.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
@@ -260,7 +288,7 @@ namespace AutoPuTTY
             this.bDelete.Enabled = false;
             this.bDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bDelete.Image = global::AutoPuTTY.Properties.Resources.icondelete;
-            this.bDelete.Location = new System.Drawing.Point(152, 442);
+            this.bDelete.Location = new System.Drawing.Point(158, 712);
             this.bDelete.Margin = new System.Windows.Forms.Padding(0);
             this.bDelete.Name = "bDelete";
             this.bDelete.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
@@ -275,7 +303,7 @@ namespace AutoPuTTY
             this.bAdd.Enabled = false;
             this.bAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bAdd.Image = global::AutoPuTTY.Properties.Resources.iconadd;
-            this.bAdd.Location = new System.Drawing.Point(77, 442);
+            this.bAdd.Location = new System.Drawing.Point(83, 712);
             this.bAdd.Margin = new System.Windows.Forms.Padding(0);
             this.bAdd.Name = "bAdd";
             this.bAdd.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
@@ -290,7 +318,7 @@ namespace AutoPuTTY
             this.bModify.Enabled = false;
             this.bModify.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bModify.Image = global::AutoPuTTY.Properties.Resources.iconmodify;
-            this.bModify.Location = new System.Drawing.Point(2, 442);
+            this.bModify.Location = new System.Drawing.Point(8, 712);
             this.bModify.Margin = new System.Windows.Forms.Padding(0);
             this.bModify.Name = "bModify";
             this.bModify.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
@@ -371,7 +399,7 @@ namespace AutoPuTTY
             this.tlMain.Name = "tlMain";
             this.tlMain.RowCount = 1;
             this.tlMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlMain.Size = new System.Drawing.Size(1285, 595);
+            this.tlMain.Size = new System.Drawing.Size(1278, 779);
             this.tlMain.TabIndex = 0;
             // 
             // tlLeft
@@ -389,7 +417,7 @@ namespace AutoPuTTY
             this.tlLeft.RowCount = 2;
             this.tlLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
-            this.tlLeft.Size = new System.Drawing.Size(705, 595);
+            this.tlLeft.Size = new System.Drawing.Size(698, 779);
             this.tlLeft.TabIndex = 0;
             // 
             // pFind
@@ -401,7 +429,7 @@ namespace AutoPuTTY
             this.pFind.Controls.Add(this.cbCase);
             this.pFind.Controls.Add(this.bClose);
             this.pFind.Controls.Add(this.tbFilter);
-            this.pFind.Location = new System.Drawing.Point(0, 539);
+            this.pFind.Location = new System.Drawing.Point(0, 723);
             this.pFind.Margin = new System.Windows.Forms.Padding(0);
             this.pFind.Name = "pFind";
             this.pFind.Size = new System.Drawing.Size(705, 56);
@@ -471,7 +499,7 @@ namespace AutoPuTTY
             this.lbListSep.Name = "lbListSep";
             this.lbListSep.RowCount = 1;
             this.lbListSep.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.lbListSep.Size = new System.Drawing.Size(705, 539);
+            this.lbListSep.Size = new System.Drawing.Size(705, 723);
             this.lbListSep.TabIndex = 2;
             // 
             // lbList
@@ -487,7 +515,7 @@ namespace AutoPuTTY
             this.lbList.Margin = new System.Windows.Forms.Padding(0);
             this.lbList.Name = "lbList";
             this.lbList.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lbList.Size = new System.Drawing.Size(703, 539);
+            this.lbList.Size = new System.Drawing.Size(703, 723);
             this.lbList.Sorted = true;
             this.lbList.TabIndex = 0;
             this.lbList.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lbList_DrawItem);
@@ -497,12 +525,23 @@ namespace AutoPuTTY
             this.lbList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbList_DoubleClick);
             this.lbList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbList_MouseClick);
             // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label3.Location = new System.Drawing.Point(5, 476);
+            this.label3.Margin = new System.Windows.Forms.Padding(0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(571, 4);
+            this.label3.TabIndex = 22;
+            // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1292, 604);
+            this.ClientSize = new System.Drawing.Size(1285, 788);
             this.Controls.Add(this.tlMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
@@ -564,6 +603,9 @@ namespace AutoPuTTY
         public System.Windows.Forms.ListBox lbList;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox bEye;
+        private System.Windows.Forms.TextBox tbComments;
+        private System.Windows.Forms.Label lComments;
+        private System.Windows.Forms.Label label3;
     }
 }
 

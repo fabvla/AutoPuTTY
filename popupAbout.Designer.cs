@@ -43,20 +43,22 @@ namespace AutoPuTTY
             this.tTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
             this.tTitle.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tTitle.ForeColor = System.Drawing.Color.White;
-            this.tTitle.Location = new System.Drawing.Point(64, 9);
+            this.tTitle.Location = new System.Drawing.Point(191, 19);
+            this.tTitle.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.tTitle.Name = "tTitle";
-            this.tTitle.Size = new System.Drawing.Size(116, 23);
+            this.tTitle.Size = new System.Drawing.Size(478, 52);
             this.tTitle.TabIndex = 1;
-            this.tTitle.Text = "AutoPuTTY";
+            this.tTitle.Text = "AutoPuTTY Reloaded";
             // 
             // tVersion
             // 
             this.tVersion.AutoSize = true;
             this.tVersion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
             this.tVersion.ForeColor = System.Drawing.Color.White;
-            this.tVersion.Location = new System.Drawing.Point(177, 17);
+            this.tVersion.Location = new System.Drawing.Point(683, 38);
+            this.tVersion.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.tVersion.Name = "tVersion";
-            this.tVersion.Size = new System.Drawing.Size(41, 13);
+            this.tVersion.Size = new System.Drawing.Size(91, 29);
             this.tVersion.TabIndex = 3;
             this.tVersion.Text = "version";
             // 
@@ -64,24 +66,28 @@ namespace AutoPuTTY
             // 
             this.bOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.bOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.bOK.Location = new System.Drawing.Point(87, 65);
+            this.bOK.Location = new System.Drawing.Point(368, 253);
+            this.bOK.Margin = new System.Windows.Forms.Padding(7);
             this.bOK.Name = "bOK";
-            this.bOK.Size = new System.Drawing.Size(70, 24);
+            this.bOK.Size = new System.Drawing.Size(163, 54);
             this.bOK.TabIndex = 0;
             this.bOK.Text = "OK";
             this.bOK.UseVisualStyleBackColor = true;
             // 
             // piAbout
             // 
-            this.piAbout.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.piAbout.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.piAbout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
             this.piAbout.Image = global::AutoPuTTY.Properties.Resources.about;
             this.piAbout.InitialImage = null;
             this.piAbout.Location = new System.Drawing.Point(0, 0);
+            this.piAbout.Margin = new System.Windows.Forms.Padding(7);
             this.piAbout.Name = "piAbout";
-            this.piAbout.Size = new System.Drawing.Size(244, 58);
+            this.piAbout.Size = new System.Drawing.Size(899, 119);
             this.piAbout.TabIndex = 5;
             this.piAbout.TabStop = false;
+            this.piAbout.Click += new System.EventHandler(this.piAbout_Click);
             // 
             // liWebsite
             // 
@@ -92,21 +98,22 @@ namespace AutoPuTTY
             this.liWebsite.ForeColor = System.Drawing.Color.White;
             this.liWebsite.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.liWebsite.LinkColor = System.Drawing.Color.White;
-            this.liWebsite.Location = new System.Drawing.Point(65, 34);
+            this.liWebsite.Location = new System.Drawing.Point(191, 76);
+            this.liWebsite.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.liWebsite.Name = "liWebsite";
-            this.liWebsite.Size = new System.Drawing.Size(118, 13);
+            this.liWebsite.Size = new System.Drawing.Size(498, 29);
             this.liWebsite.TabIndex = 12;
             this.liWebsite.TabStop = true;
-            this.liWebsite.Text = "http://r4di.us/autoputty";
+            this.liWebsite.Text = "https://fabvla.github.io/AutoPuTTY-Reloaded/";
             this.liWebsite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.liWebsite_LinkClicked);
             // 
             // popupAbout
             // 
             this.AcceptButton = this.bOK;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bOK;
-            this.ClientSize = new System.Drawing.Size(244, 96);
+            this.ClientSize = new System.Drawing.Size(899, 322);
             this.Controls.Add(this.liWebsite);
             this.Controls.Add(this.bOK);
             this.Controls.Add(this.tVersion);
@@ -114,6 +121,7 @@ namespace AutoPuTTY
             this.Controls.Add(this.piAbout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(7);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "popupAbout";

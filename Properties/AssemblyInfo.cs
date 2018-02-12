@@ -5,11 +5,11 @@ using AutoPuTTY.Properties;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AutoPuTTY")]
+[assembly: AssemblyTitle("AutoPuTTY Reloaded")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Litrux")]
-[assembly: AssemblyProduct("AutoPuTTY")]
+[assembly: AssemblyProduct("AutoPuTTY Reloaded")]
 [assembly: AssemblyCopyright("Copyright © Litrux 2008")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -29,5 +29,5 @@ using AutoPuTTY.Properties;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("0.24.3")]
-[assembly: AssemblyFileVersion("0.24.3")]
+[assembly: AssemblyVersion("0.40.0")]
+[assembly: AssemblyFileVersion("0.40.0")]

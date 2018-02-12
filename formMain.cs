@@ -438,6 +438,7 @@ namespace AutoPuTTY
             string host = "";
             string user = "";
             string pass = "";
+            string comments = "";
             int type = 0;
 
             string file = Settings.Default.cfgpath;
@@ -465,13 +466,16 @@ namespace AutoPuTTY
                             case "Type":
                                 Int32.TryParse(childnode.InnerText, out type);
                                 break;
+                            case "Comments":
+                                comments = childnode.InnerText;
+                                break;
                         }
                     }
                 }
                 else return new ArrayList();
             }
 
-            server.AddRange(new string[] {name, host, user, pass, type.ToString()});
+            server.AddRange(new string[] {name, host, user, pass, type.ToString(), comments});
             return server;
         }
 
@@ -533,6 +537,7 @@ namespace AutoPuTTY
             tbUser.Text = Decrypt((string) server[2]);
             tbPass.Text = Decrypt((string) server[3]);
             cbType.SelectedIndex = Array.IndexOf(_types, types[Convert.ToInt32(server[4])]);
+            tbComments.Text = Decrypt((string)server[5]);
             lUser.Text = cbType.Text == "Remote Desktop" ? "[Domain\\] username" : "Username";
 
             if (bAdd.Enabled) bAdd.Enabled = false;
@@ -1054,6 +1059,12 @@ namespace AutoPuTTY
                 type.InnerText = Array.IndexOf(types, cbType.Text).ToString();
                 newserver.AppendChild(type);
             }
+            if (tbComments.Text != "")
+            {
+                XmlElement comments = xmldoc.CreateElement("Comments");
+                comments.InnerText = Encrypt(tbComments.Text);
+                newserver.AppendChild(comments);
+            }
 
             XmlNodeList xmlnode = xmldoc.SelectNodes("//*[@Name=" + ParseXpathString(lbList.SelectedItem.ToString()) + "]");
             if (xmldoc.DocumentElement != null)
@@ -1120,6 +1131,12 @@ namespace AutoPuTTY
                     XmlElement type = xmldoc.CreateElement("Type");
                     type.InnerText = Array.IndexOf(types, cbType.Text).ToString();
                     newserver.AppendChild(type);
+                }
+                if (tbComments.Text != "")
+                {
+                    XmlElement comments = xmldoc.CreateElement("Comments");
+                    comments.InnerText = Encrypt(tbComments.Text);
+                    newserver.AppendChild(comments);
                 }
 
                 if (xmldoc.DocumentElement != null) xmldoc.DocumentElement.InsertAfter(newserver, xmldoc.DocumentElement.LastChild);
@@ -1232,6 +1249,11 @@ namespace AutoPuTTY
         private void cbType_SelectedIndexChanged(object sender, EventArgs e)
         {
             lUser.Text = cbType.Text == "Remote Desktop" ? "[Domain\\] username" : "Username";
+            tbName_TextChanged(this, e);
+        }
+
+        private void tbComments_TextChanged(object sender, EventArgs e)
+        {
             tbName_TextChanged(this, e);
         }
 
@@ -1494,6 +1516,21 @@ namespace AutoPuTTY
                 Properties.Settings.Default.InitialLocation = initLocation;
                 Properties.Settings.Default.Save();
             }
+        }
+
+        private void pConfig_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

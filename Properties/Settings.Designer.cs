@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Reflection;
+
 namespace AutoPuTTY.Properties {
     
     
@@ -25,10 +27,11 @@ namespace AutoPuTTY.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0.25")]
+        //[global::System.Configuration.DefaultSettingValueAttribute("0.25")]
         public string version {
             get {
-                return ((string)(this["version"]));
+                //return ((string)(this["version"]));
+                return Assembly.GetExecutingAssembly().GetName().Version.ToString();
             }
         }
         

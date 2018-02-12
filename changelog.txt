@@ -1,0 +1,46 @@
+v0.40.0 (12/02/2018)
+---------------------------------------------
+Changelog:
+- Added a "Comments" text box for each profile, in order to take specific notes about environment (like FileZilla)
+
+
+v0.30.0 - First AutoPuTTY Relase (09/02/2018)
+---------------------------------------------
+Changelog:
+- Main Window is now resizable and can remember position and size
+
+
+v0.24.3 - Wow, I'm so lazy (20/10/2012)
+---------------------------------------------
+Changelog:
+- Fixed a bug when server name had a space at the beginning or end
+- Added environment variable expansion for utilities paths
+- Added "Multiple monitors" option for RDP
+- Added sort of documentation in readme.txt, no really ..?
+
+v0.24.2 (18/05/2010)
+---------------------------------------------
+Changelog:
+- Fixed a bug with RDP and VNC output path for generated files, replaced code so that the missing / needed dll is not needed anymore
+
+
+v0.24.1 (05/05/2010)
+---------------------------------------------
+Changelog:
+- Fixed a bug with PuTTY "X11 Forwarding" setting not beeing saved...
+
+
+v0.24 (20/04/2010)
+---------------------------------------------
+Changelog:
+- Fixed bugs with path handling (used to check tools paths)
+- Fixed a bug with user specified ports not beeing used for PuTTY / WinSCP
+- Added PuTTY "X11 Forwarding" switch
+
+
+v0.23 (27/09/2009) - First public release
+---------------------------------------------
+Changelog:
+- Fixed various bugs
+- Added UI for "Import" function
+- Various speed improvement
